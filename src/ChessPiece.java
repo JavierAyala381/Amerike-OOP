@@ -3,58 +3,53 @@ import java.util.List;
 
 public class ChessPiece implements PieceInterface{
 	// Piece attributes white or black
-	public String Color;
+	public PieceColor Color;
 	// Piece shape
-	public String PieceType;
+	public PieceType PieceType;
 	// Handles the position of the piece
 	public Position Position;
-	// Keeps a track of the piece moves
+	// Keeps a track of number moves made by the piece
 	private int Moves;
-	// Max Steps allowed for a piece
+	// Max Steps allowed for a piece if applicable
 	private int MaxSteps;
-	// Characterizes the movement of the piece
-	private List<String> StepDirections = new ArrayList<String>();
+	// Characterizes the movement of the piece contains the allowed step directons
+	private List<PositionInterface.Movements> StepDirections = 
+			new ArrayList<PositionInterface.Movements>();
 	
 	/**
-	 * This is the piece constructor 
+	 * This is the piece constructor initializes the state of the piece
 	 * @throws Exception 
 	 * */
-	public ChessPiece(String pieceType, String color) throws Exception {	
-		// Verify if is a valid piece
-		boolean isValid = ChessPiece.pieces.contains(pieceType);
-		boolean isValidColor = ChessPiece.color.contains(color);
-		if(!isValid || !isValidColor) {
-			throw new Exception("This is not a valid piece");
-		};
+	public ChessPiece(PieceType pieceType, PieceColor color, int[] p_0) {
+		// This sets the initial position of the piece
+		this.Position = new Position(p_0[0], p_0[1]);
 		
-		// Initialize the piece
+		// Initialize other piece attributes
 		this.setMoves(0);
 		this.PieceType = pieceType;
 		this.Color = color;
 		
-		// Instance the piece
+		// Instance the piece according to the type (this is an example)
 		switch (pieceType) {
-			case "Peon":
-				this.setStepDirection(List.of("front", "diagonal"));
-				this.setMaxSteps(2);
+			case Peon:
+				this.setStepDirections(List.of(
+						PositionInterface.Movements.Forward,
+						PositionInterface.Movements.ForwardRight,
+						PositionInterface.Movements.ForwardLeft
+				));
 				break;
-			case "Caballo":
-				this.setStepDirection(List.of("L-Shape"));
+			case Caballo:
+				this.setStepDirections(List.of(PositionInterface.Movements.LShape));
 				this.setMaxSteps(3);
 				break;
-			case "Alfil":
-				this.setStepDirection(List.of("diagonal"));
-				break;
-			//... add more pieces
 			default:
-				// default behaviour
 				break;
 		}
 	}
 	
 	@Override
 	public void makeMove(int x, int y) {
-		// TODO Auto-generated method stub
+		// Hint use position to make the move
 	}
 
 	public int getMoves() {
@@ -73,17 +68,11 @@ public class ChessPiece implements PieceInterface{
 		MaxSteps = maxSteps;
 	}
 
-	public List<String> getStepDirection() {
+	public List<PositionInterface.Movements> getStepDirections() {
 		return StepDirections;
 	}
 
-	public void setStepDirection(List<String> stepDirection) {
-		StepDirections = stepDirection;
-	}
-
-	@Override
-	public ArrayList<int[]> getPositions() {
-		//return this.Position.getPositions();
-		return null;
+	public void setStepDirections(List<PositionInterface.Movements> stepDirections) {
+		StepDirections = stepDirections;
 	}
 }

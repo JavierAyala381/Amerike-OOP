@@ -1,17 +1,30 @@
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
 
 public interface PositionInterface {
-	public void MoveInX(int steps);
-	public void MoveInY(int steps);
-	public ArrayList<int[]> getPositions(int maxSteps, String Direction);
-	// This moves to the front n steps
+	/** Allowed piece movements */
+	public static enum Movements {
+		Forward,
+		Backwards,
+		Left,
+		Right,
+	    ForwardRight,
+	    ForwardLeft,
+	    BackwardsRight,
+	    BackwardsLeft,
+	    LShape
+	}
+	
+	/** Moves the piece forward by increasing its position by n   */
 	public void moveForward(int steps);
-	// This moves to the back n steps
+	/** Moves the piece backwards by decreasing its position by n */
 	public void moveBackwards(int steps);
-	// This moves to the left n steps
+	/** Moves the piece left by increasing its position by n */
 	public void moveLeft(int steps);
-	// This moves to the right n steps
+	/** Moves the piece right by increasing its position by n */
 	public void moveRight(int steps);
-	// This moves diagonally
-	public void moveDiagonally(int steps);
+	/** Moves the piece diagonally by increasing its position by n */
+	public void moveDiagonally(int steps, Movements dir);
+	/** Calculates the span of a vector given the direction of the vector and the span domain */
+	public List<int[]> computeVectorSpan(IntStream domain, Movements spanDir);
 }
