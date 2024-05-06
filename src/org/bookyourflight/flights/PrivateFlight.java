@@ -1,52 +1,20 @@
 package org.bookyourflight.flights;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class Flight implements FlightInterface {
-	// Flight Arguments
-	private String Id;
-	private String DepartureGate;
-	private List<char[]> Map;
-	private Map<String, Ticket> Tickets = new HashMap<String, Ticket>();
-	private Destination Origin;
-	private Destination Destination;
-	
+public class PrivateFlight extends AbstractFlight {
 	// Flight constructor
-	public Flight(Destination origin, Destination destination) {
-		// Flight id
-		
-		// Assign the origin and destination
-		this.Origin = origin; 
-		this.Destination = destination;
-		
-		
+	public PrivateFlight(Destination origin, Destination destination, String Id) {
+		// call abstract class constructor
+		super(origin, destination);
 	}
-	
+
 	@Override
 	public String getId() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Ticket getTicket() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<char[]> getFlightMap() {
-		return this.Map;
-	}
-
-	@Override
-	public void setFlightMap(List<char[]> map) {
-		Map = map;
-	}
-	//
 
 	@Override
 	public LocalDateTime getDepatureDate() {
@@ -61,13 +29,19 @@ public class Flight implements FlightInterface {
 	}
 
 	@Override
-	public org.bookyourflight.flights.Destination getOrigin() {
+	public Destination getOrigin() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public org.bookyourflight.flights.Destination getDestination() {
+	public Destination getDestination() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ticket getTicket() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -76,6 +50,18 @@ public class Flight implements FlightInterface {
 	public Ticket assignTicket() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<char[]> getFlightMap() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFlightMap(List<char[]> map) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override

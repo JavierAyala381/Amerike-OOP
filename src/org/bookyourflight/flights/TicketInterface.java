@@ -8,7 +8,7 @@ public interface TicketInterface {
 	 * id
 	 * */
 	public String getTicketId();
-	public Flight getFlight();
+	public DomesticFlight getFlight();
 	public User getUser();
 	public double TicketPriece();
 }

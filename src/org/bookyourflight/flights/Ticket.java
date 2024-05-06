@@ -6,12 +6,12 @@ import org.bookyourflight.user.User;
 public class Ticket implements TicketInterface{
 	// Variable type - name - value
 	private String Id;
-	private Flight Flight;
+	private DomesticFlight Flight;
 	private User User;
 	private double TicketPriece;
 	
 	// default constructor Ticket()
-	public Ticket(Flight flight, User user) {
+	public Ticket(DomesticFlight flight, User user) {
 		// define the ticket id
 		Random rand = new Random(9999);
 		this.Id = "RE-"+rand.nextInt(); 
@@ -25,7 +25,7 @@ public class Ticket implements TicketInterface{
 	}
 
 	
-	public Flight getFlight() {
+	public DomesticFlight getFlight() {
 		return this.Flight;
 	}
 
