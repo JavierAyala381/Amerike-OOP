@@ -5,11 +5,11 @@ import java.util.List;
 
 public interface FlightInterface {
 	public String getId();
-	public AbstractFlight setId(String id);
+	public AbstractFlight setId(String id) throws FlightException;
 	public LocalDateTime getDepatureDate();
 	public AbstractFlight setDepatureDate(LocalDateTime dep);
 	public String getDepartueGate();
-	public AbstractFlight setDepartueGate(String gate);
+	public AbstractFlight setDepartueGate(String gate) throws FlightException;
 	public Destination getOrigin();
 	public Destination getDestination();
 	public Ticket getTicket();

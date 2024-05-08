@@ -6,8 +6,10 @@ import java.util.List;
 public class PrivateFlight extends AbstractFlight {
 	// Flight constructor
 	public PrivateFlight(Destination origin, Destination destination, String Id) {
-		// call abstract class constructor
-		super(origin, destination);
+		// call abstract class constructor 
+		// Id must be of the form PI-xxxx
+		// Gate must be of the form Z-xx
+		super(origin, destination,"PI-[0-9]{4}","Z-[0-9]{2}");
 	}
 
 	@Override
