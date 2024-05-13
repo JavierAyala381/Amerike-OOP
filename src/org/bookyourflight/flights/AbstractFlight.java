@@ -107,4 +107,15 @@ public abstract class AbstractFlight implements FlightInterface {
 	public boolean isInternational() {
 		return this.Origin.getRegion().equals(Destination.getRegion());
 	}
+	
+	/**
+	 * Increases the given letter by 1 so if
+	 * "A" 
+	 * A -> B
+	 * */
+	public static String nextLetter(String letter) {
+	      int charValue = letter.charAt(0);
+	      String next = String.valueOf( (char) (charValue + 1));
+	      return next;
+	}
 }

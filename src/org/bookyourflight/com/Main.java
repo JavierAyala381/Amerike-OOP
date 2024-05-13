@@ -12,14 +12,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		try { 
-			DomesticFlight f = (DomesticFlight) new DomesticFlight(Destination.UK, Destination.MX)
-					.setId("RE-4346")
-					.setDepartueGate("A-04")
-					.setDepatureDate(LocalDateTime.now());
-		} catch(FlightException ex) {
-			System.out.println("An exception has acurred " + ex.getMessage());
-		} finally {
+		try {
+			String B = AbstractFlight.nextLetter("C");
+			System.out.println(B);
+		}  finally {
 			System.out.println(" This is happening no matter what");
 		}
 		
