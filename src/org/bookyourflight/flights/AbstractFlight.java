@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.bookyourflight.util.Utilities;
+
 public abstract class AbstractFlight implements FlightInterface {
 	// Flight parameters
 	private String Id;
@@ -38,12 +40,8 @@ public abstract class AbstractFlight implements FlightInterface {
 	 * */
 	@Override
 	public AbstractFlight setId(String id) throws FlightException {
-		// Creates the string pattern from the regex
-		Pattern pattern = Pattern.compile(this.FlightRegex);
-		// Create the matcher object
-		Matcher matcher = pattern.matcher(id);
 		// Find the regex in the string
-		if(matcher.find()) {
+		if(Utilities.matchRegex(this.FlightRegex, id)) {
 			this.Id = id;
 		} else {
 			throw new FlightException("Id is not a valid flight id");
