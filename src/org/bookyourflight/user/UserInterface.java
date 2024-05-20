@@ -10,7 +10,7 @@ public interface UserInterface {
 	public void setEmail(String email) throws UserException; 
 	public String getPhoneNumber();
 	public void setPhoneNumber(String phoneNumber) throws UserException;
-	public String getCountry();
+	public Destination getCountry();
 	public void setCountry(Destination country);
 	
 }

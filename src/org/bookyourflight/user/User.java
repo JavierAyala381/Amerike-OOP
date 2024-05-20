@@ -9,9 +9,19 @@ public class User implements UserInterface{
 	private String PhoneNumber;
 	private Destination Country;
 	
-	//Sets the initial state of the class :)
-	public User(String fullName,String email,String phoneNumber,Destination country) {
-			
+	
+	/**
+	 * Sets the initial state of the class :)
+	 * @param fullName is the user fullname
+	 * @param email is the user email
+	 * @param phoneNumber is the user phonenumber
+	 * @param country is the user nationality
+	 */
+	public User(String fullName,String email,String phoneNumber,Destination country) throws UserException {
+		this.setFullName(fullName);
+		this.setEmail(email);
+		this.setPhoneNumber(phoneNumber);
+		this.setCountry(country);	
 	}
 	
 	@Override
@@ -27,42 +37,54 @@ public class User implements UserInterface{
 		}
 		this.FullName = fullName;
 	}
-
+	/*
+	 * Debe de traer los datos de email
+	 */
 	@Override
 	public String getEmail() {
-		// TODO Auto-generated method stub
-		
-		return null;
+		return this.Email;
 	}
-
+	/*
+	 * Debe de colocar los datos de email
+	 */
 	@Override
 	public void setEmail(String email) throws UserException{
-		// TODO Auto-generated method stub
-		
+		//holamundo37@gmail.com
+		//TODO Agregar que no identifique caracteres
+		String regex = "\\w+@\\w+\\.com";
+		if (Utilities.matchRegex(regex, email)) {
+			throw new UserException("Invalid user email, characters and numbers unavalible");
+		}
+		this.Email = email;
 	}
 
 	@Override
 	public String getPhoneNumber() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.PhoneNumber;
 	}
 
 	@Override
 	public void setPhoneNumber(String phoneNumber) throws UserException{
-		// TODO Auto-generated method stub
+		//+525512345678
+		String regex = "\\+52\\d{10}";
+		if (Utilities.matchRegex(regex, phoneNumber)) {
+			throw new UserException("Invalid user phonenumber, numbers unavalible");
+		}
+		this.PhoneNumber = phoneNumber;
 		
 	}
 
 	@Override
-	public String getCountry() {
-		// TODO Auto-generated method stub
-		return null;
+	public Destination getCountry() {
+		
+		return this.Country;
 	}
 
 	@Override
 	public void setCountry(Destination country) {
-		// TODO Auto-generated method stub
 		
+		this.Country=country;
 	}
 
 }

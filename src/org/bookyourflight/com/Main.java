@@ -21,11 +21,11 @@ public class Main {
 		}  finally {
 			System.out.println(" This is happening no matter what");
 		}*/
-		String regex = "[^ a-zA-Z]+";
-		if (Utilities.matchRegex(regex, "Joel")) {
+		
+		/*if (Utilities.matchRegex(regex, "javier@gmail.com")) {
 			System.out.println("Invalid user name, characters and numbers unavalible");
-		}
-		System.out.println();
+		}*/
+		System.out.println(Utilities.matchRegex("\\+52\\d{10}", "+525512349978"));
 		
 		// TODO Auto-generated method stub
 		//System.out.println(ex);
