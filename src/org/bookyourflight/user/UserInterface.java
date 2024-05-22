@@ -1,5 +1,7 @@
 package org.bookyourflight.user;
 
+import java.time.LocalDate;
+
 import org.bookyourflight.flights.Destination;
 
 public interface UserInterface {
@@ -12,5 +14,17 @@ public interface UserInterface {
 	public void setPhoneNumber(String phoneNumber) throws UserException;
 	public Destination getCountry();
 	public void setCountry(Destination country);
+	public int getAge();
+	public void setAge(int age);
+	public char getGender();
+	public void setGender(char gender);
+	public LocalDate getBirthDate();
+	public void setBirthDate(int [] dateArray);
+	
+	
+	
+	
+	
+	
 	
 }

@@ -1,5 +1,7 @@
 package org.bookyourflight.user;
 
+import java.time.LocalDate;
+
 import org.bookyourflight.flights.Destination;
 import org.bookyourflight.util.Utilities;
 
@@ -8,7 +10,11 @@ public class User implements UserInterface{
 	private String Email;
 	private String PhoneNumber;
 	private Destination Country;
-	
+	//Age, gender, date of birth
+	private int Age;
+	//F for female, M for Male
+	private char Gender;
+	private LocalDate BirthDate;	
 	
 	/**
 	 * Sets the initial state of the class :)
@@ -85,6 +91,32 @@ public class User implements UserInterface{
 	public void setCountry(Destination country) {
 		
 		this.Country=country;
+	}
+	@Override
+	public int getAge() {
+		return Age;
+	}
+	@Override
+	public void setAge(int age) {
+		Age = age;
+	}
+	@Override
+	public char getGender() {
+		return Gender;
+	}
+	@Override
+	public void setGender(char gender) {
+		Gender = gender;
+	}
+	@Override
+	public LocalDate getBirthDate() {
+		return BirthDate;
+	}
+	@Override
+	public void setBirthDate(int [] dateArray) {
+		//{2012, 3, 15}
+		LocalDate birthDate = LocalDate.of(dateArray[0], dateArray[1], dateArray[2]);
+		this.BirthDate = birthDate;
 	}
 
 }
